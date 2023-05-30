@@ -4,8 +4,9 @@ menu:
 - {name: 'contact', url: '/contact'}
 
 social:
-- {icon: 'github', link: 'https://github.com/LeNPaul'}
-- {icon: 'linkedin', link: 'https://linkedin.com/in/lenpaul'}
+- {icon: 'github', link: 'https://github.com/DeIonizedPlasma'}
+- {icon: 'linkedin', link: 'https://www.linkedin.com/in/joseph-jerkins-72271410a'}
 
 contacts:
-- {name: 'Dr. Academia', title: 'Professor', department: 'Physics & Astronomy', institution: 'Some University', institution_address: '1 Main Street, Canada', phone: '(000) 000-0000', email: 'hello@university.edu', office: 'Science Building 505', image: 'assets/img/contact.jpg'}
+- {name: 'Joseph Jerkins', department: 'Plasma Science and Fusion Center', institution: 'Massachusetts Institute of Technology', institution_address: '77 Massachusetts Ave', phone: '(000) 000-0000', email: 'josephwj@mit.edu', office: 'NW17-216'}
+
