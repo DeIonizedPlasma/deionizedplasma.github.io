@@ -446,6 +446,12 @@ dl dd {
   text-align: center;
 }
 
+/* Block quotes */
+.blockquote {
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
 /* Sidenotes */
 
 .sidenote {
