@@ -14641,7 +14641,7 @@ $$<p>To use this, all we need to do is dot the vector of our $y_i$ values with e
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -14704,7 +14704,7 @@ $$
 $$</p>
 $$
 \frac{\partial^2 y}{\partial x^2}\approx \frac{y_{i-1}-2y_i+y_{i+1}}{\Delta x^2}=100*y_{i-1}-200*y_i+100*y_{i+1}
-$$<p>Because we went up to the second derivative in our initial derivation, this method is second order accurate. We could just as easily have gone to a higher order and gotten a more accurate equation for the derivatives; this method works to arbitrary order, as long as there are sufficiently many adjacent points. The last thing we need to figure out is how the edge points are handled. For this, we can simply give up on centering our matrix on the point of interest and instead use a different number of points to the left/right of our point $y_i$. For example, the matrix equation for 4th-order accurate derivatives on the leftmost point is written below, using the shorthand $x_j-x_i=\Delta_j$:
+$$<p>Because we went up to the second derivative in our initial derivation, this method is second order accurate. We could just as easily have gone to a higher order and gotten a more accurate equation for the derivatives; this method works to arbitrary order, as long as there are sufficiently many adjacent points. The last thing we need to figure out is how the edge points are handled. For this, we can simply give up on centering our matrix on the point of interest and instead use a different number of points to the left/right of our point $y_i$. For example, the matrix equation for 4th-order accurate derivatives on the leftmost point is written below, using the shorthand $x_j-x_i=\Delta_j$:</p>
 $$
 \begin{bmatrix}
 1&amp;0&amp;0&amp;0&amp;0\\
@@ -14714,19 +14714,21 @@ $$
 1&amp;\Delta_{i+4}&amp;\Delta_{i+4}^2/2&amp;\Delta_{i+4}^3/3!&amp;\Delta_{i+4}^4/4!\\
 \end{bmatrix}
 \begin{bmatrix}
-y_i\
-\frac{\partial y_i}{\partial x}\
-\frac{\partial^2 y_i}{\partial x^2}\
-\frac{\partial^3 y_i}{\partial x^3}\
-\frac{\partial^4 y_i}{\partial x^4}</p>
-<h1 id="%5Cend%7Bbmatrix%7D">\end{bmatrix}<a class="anchor-link" href="#%5Cend%7Bbmatrix%7D">&#182;</a></h1>\begin{bmatrix}
+y_i\\
+\frac{\partial y_i}{\partial x}\\
+\frac{\partial^2 y_i}{\partial x^2}\\
+\frac{\partial^3 y_i}{\partial x^3}\\
+\frac{\partial^4 y_i}{\partial x^4}
+\end{bmatrix}
+=
+\begin{bmatrix}
 y_i\\
 y_{i+1}\\
 y_{i+2}\\
 y_{i+3}\\
 y_{i+4}
-\end{bmatrix}<p>$$
-With this, we have everything we need to evaluate derivatives of arbitrary order anywhere on an arbitrarily discretized grid! Let's write a function which returns the inverted matrix, given the grid points, an index for the point of interest, and the desired order of accuracy.</p>
+\end{bmatrix}
+$$<p>With this, we have everything we need to evaluate derivatives of arbitrary order anywhere on an arbitrarily discretized grid! Let's write a function which returns the inverted matrix, given the grid points, an index for the point of interest, and the desired order of accuracy.</p>
 
 </div>
 </div>
@@ -14736,7 +14738,7 @@ With this, we have everything we need to evaluate derivatives of arbitrary order
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-python"><pre><span></span><span class="k">def</span> <span class="nf">D_matrix</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">max_order</span><span class="p">):</span>
@@ -14795,7 +14797,7 @@ With this, we have everything we need to evaluate derivatives of arbitrary order
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-python"><pre><span></span><span class="c1">#Calculate first derivative at each point with second order method</span>
@@ -14850,7 +14852,7 @@ With this, we have everything we need to evaluate derivatives of arbitrary order
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -14910,7 +14912,7 @@ With this, we have everything we need to evaluate derivatives of arbitrary order
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
 
 
 
@@ -14960,7 +14962,7 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-python"><pre><span></span><span class="n">x_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.325</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.675</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">0.90</span><span class="p">,</span><span class="mf">0.95</span><span class="p">,</span><span class="mf">1.0</span><span class="p">])</span>
@@ -15005,7 +15007,7 @@ class="
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
 
 
 
